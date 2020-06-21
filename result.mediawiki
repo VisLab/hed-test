@@ -1,6 +1,9 @@
-HED <nowiki>{version=7.1.1}</nowiki>
+HED version: 7.1.1
+
+!# start hed
+
 '''Event'''
-* Category <nowiki>{required, requireChild, predicateType=passThrough, position=1} [This is meant to designate the reason this event was recorded]</nowiki>
+* Category <nowiki>{requireChild, required, predicateType=passThrough, position=1} [This is meant to designate the reason this event was recorded]</nowiki>
 ** Initial context <nowiki>[The purpose is to set the starting context for the experiment --- and if there is no initial context event---this information would be stored as a dataset tag]</nowiki>
 ** Participant response <nowiki>[The purpose of this event was to record the state or response of a participant. Note: participant actions may occur in other kinds of events, such as the experimenter records a terrain change as an event and the participant happens to be walking. In this case the event category would be Environmental. In contrast, if the participant started walking in response to an instruction or to some other stimulus, the event would be recorded as Participant response]</nowiki>
 ** Technical error <nowiki>[Experimenters forgot to turn on something or the cord snagged and something may be wrong with the data]</nowiki>
@@ -55,6 +58,7 @@ HED <nowiki>{version=7.1.1}</nowiki>
 ** <nowiki># {takesValue}</nowiki>
 * Long name <nowiki>{requireChild, unique, predicateType=propertyOf, position=2} [A long name for the event that could be over 100 characters and could contain characters like vertical bars as separators. Long names are used for cases when one wants to encode a lot of information in a single string such as  Scenario | VehiclePassing | TravelLaneBLocked | Onset]</nowiki>
 ** <nowiki># {takesValue}</nowiki>
+
 '''Item'''
 * ID <nowiki>{requireChild, predicateType=propertyOf} [Optional]</nowiki>
 ** <nowiki># {takesValue}</nowiki>
@@ -153,6 +157,7 @@ HED <nowiki>{version=7.1.1}</nowiki>
 * IAPS <nowiki>[International Affective Picture System]</nowiki>
 * IADS <nowiki>[International Affective Digital Sounds]</nowiki>
 * SAM <nowiki>[The Self-Assessment Manikin]</nowiki>
+
 '''Sensory presentation''' <nowiki>{extensionAllowed} [Object manifestation]</nowiki>
 * Auditory <nowiki>[Sound]</nowiki>
 ** Nameable
@@ -230,6 +235,7 @@ HED <nowiki>{version=7.1.1}</nowiki>
 ***** Steady state
 *** Real-world
 *** LED <nowiki>[Stimulus is turning on/off one or a few LEDs]</nowiki>
+
 '''Attribute''' <nowiki>{requireChild, extensionAllowed}</nowiki>
 * Onset <nowiki>[Default]</nowiki>
 * Offset
@@ -272,46 +278,46 @@ HED <nowiki>{version=7.1.1}</nowiki>
 ** Stern <nowiki>[Back of the ship]</nowiki>
 * Direction <nowiki>{requireChild} [Coordinate system is inferred from Attribute/Location. To specify a vector combine subnodes with number --- for example Attribute/Top/10, Attribute/Direction/Left/5 to create a vector with coordinates 10 and 5]</nowiki>
 ** Top <nowiki>[Combine Attribute/Direction/Top and Attribute/Direction/Left to mean the upper left]</nowiki>
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** Bottom
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** Left
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** Right
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** Angle <nowiki>[Clockwise angle in degrees from vertical]</nowiki>
 *** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise angle in degrees from vertical]</nowiki>
 ** North
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** South
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** East
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** West
-*** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 ** Forward <nowiki>[Like a car moving forward]</nowiki>
 ** Backward <nowiki>[Like a car moving backward]</nowiki>
 * Location <nowiki>{requireChild} [Spot or center of an area. Use Area were you are referring to something with significant extent and emphasizing its boundaries, like a city]</nowiki>
 ** <nowiki># {takesValue} [location label]</nowiki>
 ** Screen <nowiki>[Specify displacements from each subnode in pixels or degrees or meters. Specify units such as Attribute/Location/Screen/Top/12 px]</nowiki>
 *** Center
-**** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 *** Top <nowiki>[You can combine Attribute/Location/Top and Attribute/Location/Left to designate UpperLeft and so on]</nowiki>
-**** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 *** Bottom
-**** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 *** Left
-**** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 *** Right
-**** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength,pixels}</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength, unitClass=pixels}</nowiki>
 *** Angle
 **** <nowiki># {takesValue, isNumeric, unitClass=angle} [Clockwise angle in degrees from vertical]</nowiki>
 *** Center displacement
-**** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength} [displacement from screen center, in any direction, in degrees, cm, or other lengths]</nowiki>
+**** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength} [displacement from screen center, in any direction, in degrees, cm, or other lengths]</nowiki>
 **** Horizontal
-***** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength} [Displacement from screen center in any direction]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength} [Displacement from screen center in any direction]</nowiki>
 **** Vertical
-***** <nowiki># {takesValue, isNumeric, unitClass=angle,physicalLength} [Displacement from screen center in any direction]</nowiki>
+***** <nowiki># {takesValue, isNumeric, unitClass=angle, unitClass=physicalLength} [Displacement from screen center in any direction]</nowiki>
 ** Lane <nowiki>[For example a car lane]</nowiki>
 *** Rightmost
 *** Leftmost
@@ -372,13 +378,13 @@ HED <nowiki>{version=7.1.1}</nowiki>
 ** Ramp down <nowiki>[Decreasing in amplitude]</nowiki>
 * Blink
 ** Time shut <nowiki>{requireChild} [The amount of time the eyelid remains closed (typically measured as 90% of the blink amplitude), in seconds.]</nowiki>
-*** <nowiki># {takesValue, isNumeric, default=s, unitClass=time}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki>
 ** Duration <nowiki>{requireChild} [Duration of blink, usually the half-height blink duration in seconds taken either from base or zero of EEG signal. For eye-trackers, usually denotes interval when pupil covered by eyelid.]</nowiki>
-*** <nowiki># {takesValue, isNumeric, default=s, unitClass=time}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=time, default=s}</nowiki>
 ** PAVR <nowiki>{requireChild} [Amplitude-Velocity ratio, in centiseconds]</nowiki>
-*** <nowiki># {takesValue, isNumeric, default=centiseconds, unitClass=time}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki>
 ** NAVR <nowiki>{requireChild} [Negative Amplitude-Velocity ratio, in centiseconds]</nowiki>
-*** <nowiki># {takesValue, isNumeric, default=centiseconds, unitClass=time}</nowiki>
+*** <nowiki># {takesValue, isNumeric, unitClass=time, default=centiseconds}</nowiki>
 * Visual
 ** Bistable
 ** Background
@@ -527,6 +533,7 @@ HED <nowiki>{version=7.1.1}</nowiki>
 ** Leader
 ** Follower
 ** <nowiki># {takesValue}</nowiki>
+
 '''Action''' <nowiki>[May or may not be associated with a prior stimulus and can be extended]</nowiki>
 * Involuntary <nowiki>[Like sneezing or tripping on something or hiccuping]</nowiki>
 ** Hiccup
@@ -660,6 +667,7 @@ HED <nowiki>{version=7.1.1}</nowiki>
 * Track
 * Encode
 * Eye-blink inhibit
+
 '''Participant''' <nowiki>{predicateType=passThrough}</nowiki>
 * ID <nowiki>{requireChild, predicateType=propertyOf} [If not given assume 1]</nowiki>
 ** <nowiki># {takesValue, isNumeric} [Numeric value of an ID]</nowiki>
@@ -855,6 +863,7 @@ HED <nowiki>{version=7.1.1}</nowiki>
 *** Drowsy
 *** Excited
 *** Neutral
+
 '''Experiment context''' <nowiki>{requireChild, extensionAllowed} [Describes the context of the whole experiment or large portions of it and also includes tags that are common across all events]</nowiki>
 * <nowiki># {takesValue} [Add common tags across all stimuli/ and/or responses here if all experimental events share /State/Drowsy, you can place it here instead of tagging each event individually]</nowiki>
 * With chin rest
@@ -891,9 +900,12 @@ HED <nowiki>{version=7.1.1}</nowiki>
 *** <nowiki># {takesValue, isNumeric, unitClass=pixels} [Default units are  pixels]</nowiki>
 * Real world
 * Virtual world
+
 '''Custom''' <nowiki>{requireChild, extensionAllowed} [This node can be used to organize events in an alternative (parallel) hierarchy. You can define your custom tags and hierarchies without any restriction under this node. These tags will still be matched to each other as for example  /Custom/Dance/Waltz is considered a subtype of /Custom/DanceExample.]</nowiki>
+
 '''HED''' <nowiki>{requireChild} [Hierarchical Event Descriptor]</nowiki>
 * <nowiki># {takesValue, isNumeric} [HED specification version number: normally there is no need to specify the version number in the HED string since it will be matched by default to the most recent compliant version, but this tag can be used to specify the exact HED version the HED string was based on.]</nowiki>
+
 '''Paradigm''' <nowiki>{requireChild, extensionAllowed} [See Tasks in http://www.cognitiveatlas.org/tasks and CogPo definitions of paradigms]</nowiki>
 * Action imitation task
 * Action observation task
@@ -1116,4 +1128,103 @@ HED <nowiki>{version=7.1.1}</nowiki>
 * Risky gains task
 * Rivermead behavioural memory test
 
-Process finished with exit code 0
+
+'''Unit classes'''
+* time <nowiki>{defaultUnits=s}</nowiki>
+** second <nowiki>{SIUnit}</nowiki>
+** s <nowiki>{SIUnit, unitSymbol}</nowiki>
+** day
+** minute
+** hour
+* clockTime <nowiki>{defaultUnits=hour:min}</nowiki>
+** hour:min <nowiki>{unitSymbol}</nowiki>
+** h:m <nowiki>{unitSymbol}</nowiki>
+** hour:min:sec <nowiki>{unitSymbol}</nowiki>
+** h: <nowiki>{unitSymbol}</nowiki>
+* frequency <nowiki>{defaultUnits=Hz}</nowiki>
+** hertz <nowiki>{SIUnit}</nowiki>
+** Hz <nowiki>{SIUnit, unitSymbol}</nowiki>
+* angle <nowiki>{defaultUnits=radian}</nowiki>
+** radian <nowiki>{SIUnit}</nowiki>
+** rad <nowiki>{SIUnit, unitSymbol}</nowiki>
+** degree
+* physicalLength <nowiki>{defaultUnits=m}</nowiki>
+** metre <nowiki>{SIUnit}</nowiki>
+** m <nowiki>{SIUnit, unitSymbol}</nowiki>
+** foot
+** mile
+* pixels <nowiki>{defaultUnits=px}</nowiki>
+** pixel
+** px <nowiki>{unitSymbol}</nowiki>
+* area <nowiki>{defaultUnits=m^2}</nowiki>
+** m^2 <nowiki>{SIUnit, unitSymbol}</nowiki>
+** px^2 <nowiki>{unitSymbol}</nowiki>
+** pixel^2
+* volume <nowiki>{defaultUnits=m^3}</nowiki>
+** m^3 <nowiki>{SIUnit, unitSymbol}</nowiki>
+* speed <nowiki>{defaultUnits=m-per-s}</nowiki>
+** m-per-s <nowiki>{SIUnit, unitSymbol}</nowiki>
+** mph <nowiki>{unitSymbol}</nowiki>
+** kph <nowiki>{unitSymbol}</nowiki>
+* acceleration <nowiki>{defaultUnits=m-per-s^2}</nowiki>
+** m-per-s^2 <nowiki>{SIUnit, unitSymbol}</nowiki>
+* jerk <nowiki>{defaultUnits=m-per-s^3}</nowiki>
+** m-per-s^3 <nowiki>{unitSymbol}</nowiki>
+* intensity <nowiki>{defaultUnits=dB}</nowiki>
+** dB <nowiki>{unitSymbol}</nowiki>
+* luminousIntensity <nowiki>{defaultUnits=cd}</nowiki>
+** candela <nowiki>{SIUnit}</nowiki>
+** cd <nowiki>{SIUnit, unitSymbol}</nowiki>
+* memorySize <nowiki>{defaultUnits=B}</nowiki>
+** byte <nowiki>{SIUnit}</nowiki>
+** B <nowiki>{SIUnit, unitSymbol}</nowiki>
+* currency <nowiki>{defaultUnits=$}</nowiki>
+** dollar
+** $ <nowiki>{unitSymbol}</nowiki>
+** point
+** fraction
+
+'''Unit modifiers'''
+* deca <nowiki>{SIUnitModifier} [SI unit multiple representing 10^1]</nowiki>
+* da <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^1]</nowiki>
+* hecto <nowiki>{SIUnitModifier} [SI unit multiple representing 10^2]</nowiki>
+* h <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^2]</nowiki>
+* kilo <nowiki>{SIUnitModifier} [SI unit multiple representing 10^3]</nowiki>
+* k <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^3]</nowiki>
+* mega <nowiki>{SIUnitModifier} [SI unit multiple representing 10^6]</nowiki>
+* M <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^6]</nowiki>
+* giga <nowiki>{SIUnitModifier} [SI unit multiple representing 10^9]</nowiki>
+* G <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^9]</nowiki>
+* tera <nowiki>{SIUnitModifier} [SI unit multiple representing 10^12]</nowiki>
+* T <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^12]</nowiki>
+* peta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^15]</nowiki>
+* P <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^15]</nowiki>
+* exa <nowiki>{SIUnitModifier} [SI unit multiple representing 10^18]</nowiki>
+* E <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^18]</nowiki>
+* zetta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^21]</nowiki>
+* Z <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^21]</nowiki>
+* yotta <nowiki>{SIUnitModifier} [SI unit multiple representing 10^24]</nowiki>
+* Y <nowiki>{SIUnitSymbolModifier} [SI unit multiple representing 10^24]</nowiki>
+* deci <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-1]</nowiki>
+* d <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-1]</nowiki>
+* centi <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-2]</nowiki>
+* c <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-2]</nowiki>
+* milli <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-3]</nowiki>
+* m <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-3]</nowiki>
+* micro <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-6]</nowiki>
+* u <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-6]</nowiki>
+* nano <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-9]</nowiki>
+* n <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-9]</nowiki>
+* pico <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-12]</nowiki>
+* p <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-12]</nowiki>
+* femto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-15]</nowiki>
+* f <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-15]</nowiki>
+* atto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-18]</nowiki>
+* a <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-18]</nowiki>
+* zepto <nowiki>{SIUnitModifier} [SI unit submultiple representing 10^-21]</nowiki>
+* z <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-21]</nowiki>
+* yocto <nowiki>{SIUnitModifiers} [SI unit submultiple representing 10^-24]</nowiki>
+* y <nowiki>{SIUnitSymbolModifier} [SI unit submultiple representing 10^-24]</nowiki>
+!# end hed
+
+

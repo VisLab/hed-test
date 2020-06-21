@@ -1,0 +1,39 @@
+Major differences are the ones with *'s in front of them.
+
+List of all differences:
+Line 6: Spacing/param order
+
+Line 59: Missing period
+
+Line 96: nowiki tag added
+
+****Line 148: Text missing due to lack of [
+
+****Line 161: Stuff inside of '''
+
+Line 241: nowiki tag added
+
+Line 244: # outside of nowiki tag
+line 250: # outside of nowiki tag
+
+Line 300: nowiki tag location
+Line 331: nowiki tag location
+Line 359: Extraneous nowiki tag
+Line 372: Extraneous nowiki tag
+Line 388: Extraneous nowiki tag
+
+Line 491: Missing period/spacing
+****Line 492: Text missing due to lack of [
+
+Line 578:  # outside of nowiki tag
+line 581:  # outside of nowiki tag
+
+****Line 738: Extra square brackets from original removed
+Line 740: # outside of nowiki tag
+Line 742:  # outside of nowiki tag
+
+Line 761: nowiki tag missing in origial
+
+****Line 1143: Special h:m:s handling missing
+
+Also missing is extend here section and glossary at end
