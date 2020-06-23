@@ -48,13 +48,19 @@ class TagCompare():
                         self.add_tag(elem.text)
                         #self.current_tag_string += elem.tag
 
+        self.print_tag_dict()
+
     def add_tag(self, new_tag):
         if new_tag not in self.tag_dict:
             self.tag_dict[new_tag] = [new_tag]
         else:
             self.tag_dict[new_tag].append(new_tag)
-            print(f"Duplicate tag found {new_tag}: {len(self.tag_dict[new_tag])}")
+            #print(f"Duplicate tag found {new_tag}: {len(self.tag_dict[new_tag])}")
 
+    def print_tag_dict(self):
+        for tag_name in self.tag_dict:
+            if len(self.tag_dict[tag_name]) > 1:
+                print(f"Duplicate tag found {tag_name}: {len(self.tag_dict[tag_name])}")
 
 hed_tree = ET.parse("HED7.1.1.xml")
 hed_tree = hed_tree.getroot()
