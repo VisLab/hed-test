@@ -17,52 +17,53 @@ class TagCompare():
 
         return nodes_in_parent
 
-
     def process_tree(self, hed_tree):
         # Create a map so we can go from child to parent easily.
         self.parent_map = {c: p for p in hed_tree.iter() for c in p}
 
+        self.tag_dict = {}
+        current_depth_check = None
+        name_stack = []
         for elem in hed_tree.iter():
-            # stuff that applies to all modes
+            if elem.tag == "unitClasses":
+                name_stack = []
+                self.print_tag_dict()
+                self.tag_dict = {}
+                current_depth_check = ["unitClasses", "units"]
+            elif elem.tag == "unitModifiers":
+                name_stack = []
+                self.print_tag_dict()
+                self.tag_dict = {}
+                current_depth_check = ["unitModifiers"]
             if elem.tag == "name" or elem.tag == "unit":
-                nodes_in_parent = self.count_parent_nodes(elem) - 1
                 # handle special case where text is just "#"
                 if elem.text and "#" in elem.text:
-                    #prefix = "*" * nodes_in_parent
-                    #self.add_tag(elem.text)
                     pass
-                    #print(elem.text)
-                    # self.current_tag_string += f"{prefix}"
-                    # self.current_tag_extra = f"{elem.text} {self.current_tag_extra}"
                 else:
-                    if nodes_in_parent == 0:
-                        self.add_tag(elem.text)
-
-                        #self.current_tag_string += f"'''{elem.text}'''"
-                        #self.add_blank_line()
-                    elif nodes_in_parent > 0:
-                        self.add_tag(elem.text)
-                        #prefix = "*" * nodes_in_parent
-                        #self.current_tag_string += f"{prefix} {elem.text}"
-                    elif nodes_in_parent == -1:
-                        self.add_tag(elem.text)
-                        #self.current_tag_string += elem.tag
+                    nodes_in_parent = self.count_parent_nodes(elem, current_depth_check)
+                    while len(name_stack) >= nodes_in_parent and len(name_stack) > 0:
+                        name_stack.pop()
+                    name_stack.append(elem.text)
+                    full_tag_name = "/".join(name_stack)
+                    self.add_tag(elem.text, full_tag_name)
 
         self.print_tag_dict()
 
-    def add_tag(self, new_tag):
+    def add_tag(self, new_tag, full_tag):
         if new_tag not in self.tag_dict:
-            self.tag_dict[new_tag] = [new_tag]
+            self.tag_dict[new_tag] = [full_tag]
         else:
-            self.tag_dict[new_tag].append(new_tag)
-            #print(f"Duplicate tag found {new_tag}: {len(self.tag_dict[new_tag])}")
+            self.tag_dict[new_tag].append(full_tag)
 
     def print_tag_dict(self):
         for tag_name in self.tag_dict:
             if len(self.tag_dict[tag_name]) > 1:
                 print(f"Duplicate tag found {tag_name}: {len(self.tag_dict[tag_name])}")
+                for full_tag in self.tag_dict[tag_name]:
+                    print(full_tag)
 
-hed_tree = ET.parse("HED7.1.1.xml")
+
+hed_tree = ET.parse("result_reduced.xml")
 hed_tree = hed_tree.getroot()
 xml2wiki = TagCompare()
 xml2wiki.process_tree(hed_tree)
